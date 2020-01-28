@@ -121,12 +121,12 @@
 			isa = PBXGroup;
 			children = (
 				4008AD0323E032D400C7BAE1 /* AppDelegate.swift */,
-				4008AD4323E04BB900C7BAE1 /* Utils */,
 				4008AD0923E032D400C7BAE1 /* Assets.xcassets */,
 				4008AD1123E032D400C7BAE1 /* Info.plist */,
 				4008AD0E23E032D400C7BAE1 /* LaunchScreen.storyboard */,
 				4008AD2D23E03D3300C7BAE1 /* Network */,
 				4008AD1923E0346200C7BAE1 /* SearchUser */,
+				4008AD4323E04BB900C7BAE1 /* Utils */,
 			);
 			path = GithubSearchDemo;
 			sourceTree = "<group>";
@@ -134,9 +134,9 @@
 		4008AD1923E0346200C7BAE1 /* SearchUser */ = {
 			isa = PBXGroup;
 			children = (
-				4008AD3E23E0442100C7BAE1 /* ViewModel */,
 				4008AD3423E03E9E00C7BAE1 /* Model */,
 				4008AD1C23E0349700C7BAE1 /* View */,
+				4008AD3E23E0442100C7BAE1 /* ViewModel */,
 			);
 			path = SearchUser;
 			sourceTree = "<group>";
@@ -153,9 +153,9 @@
 		4008AD2423E03BA800C7BAE1 /* GithubSearchDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				4008AD3723E03F2200C7BAE1 /* GithubAPITests.swift */,
 				4008AD2723E03BA800C7BAE1 /* Info.plist */,
 				4008AD4623E04C7A00C7BAE1 /* PageInfoParserTests.swift */,
-				4008AD3723E03F2200C7BAE1 /* GithubAPITests.swift */,
 				4008AD3923E041BC00C7BAE1 /* Samples */,
 			);
 			path = GithubSearchDemoTests;
@@ -174,8 +174,8 @@
 		4008AD3423E03E9E00C7BAE1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4008AD3523E03EA300C7BAE1 /* User.swift */,
 				4008AD4123E04B1300C7BAE1 /* PageInfo.swift */,
+				4008AD3523E03EA300C7BAE1 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

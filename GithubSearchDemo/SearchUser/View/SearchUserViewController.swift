@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxDataSources
+import RxCocoa
+import RxSwift
 
 class SearchUserViewController: UIViewController {
   
@@ -28,7 +31,6 @@ class SearchUserViewController: UIViewController {
   lazy var textField: UITextField = {
     let textField = UITextField()
     textField.placeholder = "Input User name to Search"
-    textField.delegate = self
     return textField
   }()
   
@@ -42,18 +44,18 @@ class SearchUserViewController: UIViewController {
     let view = UICollectionView(frame: .zero, collectionViewLayout: self.normalFlowLayout)
     view.backgroundColor = .white
     view.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuseIdentifier)
-    view.dataSource = self
     return view
   }()
   
-  let viewModel = ViewModel(service: GithubService())
+  private let viewModel = ViewModel(service: GithubService())
+  private let disposeBag = DisposeBag()
   
   // MARK: - View lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     setupSubviews()
     setupConstraints()
-    initBinding()
+    bindViews()
   }
   
   private func setupSubviews() {
@@ -72,41 +74,38 @@ class SearchUserViewController: UIViewController {
     ])
   }
   
-  private func initBinding() {
-    viewModel.didLoadData = { [weak self] in
-      self?.collectionView.reloadData()
+  private func bindViews() {
+    viewModel.userViewModels
+      .bind(to: collectionView.rx.items(
+        cellIdentifier: UserCell.reuseIdentifier,
+        cellType: UserCell.self)) { [weak self] index, element, cell in
+          
+          guard let self = self else {
+            return
+          }
+          
+          cell.setup(viewModel: element)
+          
+          if index == ((try? self.viewModel.userViewModels.value()) ?? []).count - 1 {
+            self.viewModel.loadSearchUserNextPage()
+          }
     }
-  }
-}
-
-extension SearchUserViewController: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return viewModel.userCount()
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCell.reuseIdentifier, for: indexPath) as? UserCell else {
-      fatalError("Cannot get UserCell")
-    }
-    let userViewModel = viewModel.userViewModel(index: indexPath.item)
-    cell.setup(viewModel: userViewModel)
+    .disposed(by: disposeBag)
     
-    if indexPath.item == viewModel.userCount() - 1 {
-      viewModel.loadSearchUserNextPage()
-    }
+    textField.rx.text.orEmpty.asObservable()
+      .distinctUntilChanged()
+      .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+      .subscribe(onNext: { [weak self] in
+        
+        guard let self = self else { return }
+        
+        if $0.isEmpty {
+          self.viewModel.userViewModels.onNext([])
+          return
+        }
+        self.viewModel.searchUser(name: $0)
+      })
+      .disposed(by: disposeBag)
     
-    return cell
-  }
-}
-
-extension SearchUserViewController: UITextFieldDelegate {
-  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    guard let text = textField.text,
-      let range = Range(range, in: text) else {
-      return true
-    }
-    let result = text.replacingCharacters(in: range , with: string)
-    viewModel.searchUser(name: result)
-    return true
   }
 }

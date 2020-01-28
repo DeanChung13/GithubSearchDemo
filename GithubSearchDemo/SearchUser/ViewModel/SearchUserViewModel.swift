@@ -7,17 +7,15 @@
 //
 
 import Foundation
+import RxSwift
 
 extension SearchUserViewController {
   class ViewModel {
-    private var userViewModels: [UserCell.ViewModel] = [] {
-      didSet {
-        didLoadData?()
-      }
-    }
+    var userViewModels = BehaviorSubject(value: [UserCell.ViewModel]())
+     
     private var currentUserName: String = "" {
       didSet {
-        userViewModels.removeAll()
+        userViewModels.onNext([])
         pageInfo = PageInfo()
       }
     }
@@ -49,17 +47,11 @@ extension SearchUserViewController {
       apiService.searchUser(name: currentUserName, nextPage: nextPage) { [weak self] (result) in
         guard let self = self else { return }
           
-        self.userViewModels.append(contentsOf: result.users.map { UserCell.ViewModel(user: $0) })
+        let list = (try? self.userViewModels.value()) ?? []
+        let newList = result.users.map { UserCell.ViewModel(user: $0) }
+        self.userViewModels.onNext(list + newList)
         self.pageInfo = result.pageInfo
       }
-    }
-    
-    func userCount() -> Int {
-      return userViewModels.count
-    }
-    
-    func userViewModel(index: Int) -> UserCell.ViewModel {
-      return userViewModels[index]
     }
     
   }
