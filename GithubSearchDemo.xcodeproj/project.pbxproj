@@ -13,7 +13,13 @@
 		4008AD1023E032D400C7BAE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4008AD0E23E032D400C7BAE1 /* LaunchScreen.storyboard */; };
 		4008AD1B23E0347400C7BAE1 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD1A23E0347300C7BAE1 /* SearchUserViewController.swift */; };
 		4008AD1E23E036FF00C7BAE1 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD1D23E036FF00C7BAE1 /* UserCell.swift */; };
-		4008AD2623E03BA800C7BAE1 /* GithubSearchDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD2523E03BA800C7BAE1 /* GithubSearchDemoTests.swift */; };
+		4008AD2F23E03D4500C7BAE1 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD2E23E03D4500C7BAE1 /* GithubService.swift */; };
+		4008AD3123E03D7C00C7BAE1 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD3023E03D7C00C7BAE1 /* GithubAPI.swift */; };
+		4008AD3323E03E3500C7BAE1 /* SearchUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD3223E03E3500C7BAE1 /* SearchUserResponse.swift */; };
+		4008AD3623E03EA300C7BAE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD3523E03EA300C7BAE1 /* User.swift */; };
+		4008AD3823E03F2200C7BAE1 /* GithubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD3723E03F2200C7BAE1 /* GithubAPITests.swift */; };
+		4008AD3B23E041E700C7BAE1 /* searchUserSample_mojombo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4008AD3A23E041E700C7BAE1 /* searchUserSample_mojombo.json */; };
+		4008AD3D23E0428500C7BAE1 /* searchUserSample_dean.json in Resources */ = {isa = PBXBuildFile; fileRef = 4008AD3C23E0428500C7BAE1 /* searchUserSample_dean.json */; };
 		A0F7D8243EF1D26325BEEDBE /* Pods_GithubSearchDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051A76834A7CAB8A5BBFB8D1 /* Pods_GithubSearchDemoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +44,14 @@
 		4008AD1A23E0347300C7BAE1 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		4008AD1D23E036FF00C7BAE1 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		4008AD2323E03BA800C7BAE1 /* GithubSearchDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubSearchDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4008AD2523E03BA800C7BAE1 /* GithubSearchDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchDemoTests.swift; sourceTree = "<group>"; };
 		4008AD2723E03BA800C7BAE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4008AD2E23E03D4500C7BAE1 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		4008AD3023E03D7C00C7BAE1 /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		4008AD3223E03E3500C7BAE1 /* SearchUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserResponse.swift; sourceTree = "<group>"; };
+		4008AD3523E03EA300C7BAE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4008AD3723E03F2200C7BAE1 /* GithubAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPITests.swift; sourceTree = "<group>"; };
+		4008AD3A23E041E700C7BAE1 /* searchUserSample_mojombo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchUserSample_mojombo.json; sourceTree = "<group>"; };
+		4008AD3C23E0428500C7BAE1 /* searchUserSample_dean.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchUserSample_dean.json; sourceTree = "<group>"; };
 		81E9D8555FDA804BB51641DD /* Pods_GithubSearchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubSearchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD5D6AFFCA90378DDE6BE05 /* Pods-GithubSearchDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubSearchDemoTests.release.xcconfig"; path = "Target Support Files/Pods-GithubSearchDemoTests/Pods-GithubSearchDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		AC4AAC07FEFF292D25C5BBF2 /* Pods-GithubSearchDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubSearchDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-GithubSearchDemoTests/Pods-GithubSearchDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,10 +113,11 @@
 			isa = PBXGroup;
 			children = (
 				4008AD0323E032D400C7BAE1 /* AppDelegate.swift */,
-				4008AD1923E0346200C7BAE1 /* SearchUser */,
 				4008AD0923E032D400C7BAE1 /* Assets.xcassets */,
-				4008AD0E23E032D400C7BAE1 /* LaunchScreen.storyboard */,
 				4008AD1123E032D400C7BAE1 /* Info.plist */,
+				4008AD0E23E032D400C7BAE1 /* LaunchScreen.storyboard */,
+				4008AD2D23E03D3300C7BAE1 /* Network */,
+				4008AD1923E0346200C7BAE1 /* SearchUser */,
 			);
 			path = GithubSearchDemo;
 			sourceTree = "<group>";
@@ -112,6 +125,7 @@
 		4008AD1923E0346200C7BAE1 /* SearchUser */ = {
 			isa = PBXGroup;
 			children = (
+				4008AD3423E03E9E00C7BAE1 /* Model */,
 				4008AD1C23E0349700C7BAE1 /* View */,
 			);
 			path = SearchUser;
@@ -129,10 +143,38 @@
 		4008AD2423E03BA800C7BAE1 /* GithubSearchDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				4008AD2523E03BA800C7BAE1 /* GithubSearchDemoTests.swift */,
 				4008AD2723E03BA800C7BAE1 /* Info.plist */,
+				4008AD3723E03F2200C7BAE1 /* GithubAPITests.swift */,
+				4008AD3923E041BC00C7BAE1 /* Samples */,
 			);
 			path = GithubSearchDemoTests;
+			sourceTree = "<group>";
+		};
+		4008AD2D23E03D3300C7BAE1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4008AD3023E03D7C00C7BAE1 /* GithubAPI.swift */,
+				4008AD2E23E03D4500C7BAE1 /* GithubService.swift */,
+				4008AD3223E03E3500C7BAE1 /* SearchUserResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4008AD3423E03E9E00C7BAE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4008AD3523E03EA300C7BAE1 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4008AD3923E041BC00C7BAE1 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				4008AD3A23E041E700C7BAE1 /* searchUserSample_mojombo.json */,
+				4008AD3C23E0428500C7BAE1 /* searchUserSample_dean.json */,
+			);
+			path = Samples;
 			sourceTree = "<group>";
 		};
 		70938532414B3DBD14370E53 /* Frameworks */ = {
@@ -200,6 +242,7 @@
 					};
 					4008AD2223E03BA800C7BAE1 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = 4008ACFF23E032D400C7BAE1;
 					};
 				};
@@ -237,6 +280,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4008AD3D23E0428500C7BAE1 /* searchUserSample_dean.json in Resources */,
+				4008AD3B23E041E700C7BAE1 /* searchUserSample_mojombo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +357,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4008AD1B23E0347400C7BAE1 /* SearchUserViewController.swift in Sources */,
+				4008AD3123E03D7C00C7BAE1 /* GithubAPI.swift in Sources */,
 				4008AD0423E032D400C7BAE1 /* AppDelegate.swift in Sources */,
+				4008AD3323E03E3500C7BAE1 /* SearchUserResponse.swift in Sources */,
+				4008AD2F23E03D4500C7BAE1 /* GithubService.swift in Sources */,
 				4008AD1E23E036FF00C7BAE1 /* UserCell.swift in Sources */,
+				4008AD3623E03EA300C7BAE1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4008AD2623E03BA800C7BAE1 /* GithubSearchDemoTests.swift in Sources */,
+				4008AD3823E03F2200C7BAE1 /* GithubAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +555,7 @@
 			baseConfigurationReference = AC4AAC07FEFF292D25C5BBF2 /* Pods-GithubSearchDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GithubSearchDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -516,6 +566,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dc.GithubSearchDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GithubSearchDemo.app/GithubSearchDemo";
@@ -527,6 +578,7 @@
 			baseConfigurationReference = 8DD5D6AFFCA90378DDE6BE05 /* Pods-GithubSearchDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GithubSearchDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
