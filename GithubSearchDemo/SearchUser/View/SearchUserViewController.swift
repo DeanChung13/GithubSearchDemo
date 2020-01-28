@@ -81,14 +81,15 @@ class SearchUserViewController: UIViewController {
 
 extension SearchUserViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return viewModel.users.count
+    return viewModel.userViewModels.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCell.reuseIdentifier, for: indexPath) as? UserCell else {
       fatalError("Cannot get UserCell")
     }
-    cell.nameLabel.text = viewModel.users[indexPath.item].name
+    let userViewModel = viewModel.userViewModel(index: indexPath.item)
+    cell.setup(viewModel: userViewModel)
     return cell
   }
 }

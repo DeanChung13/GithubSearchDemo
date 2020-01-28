@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserCell: UICollectionViewCell {
   static let reuseIdentifier = "UserCell"
@@ -15,14 +16,13 @@ class UserCell: UICollectionViewCell {
   lazy var avatarImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.backgroundColor = .red
     return imageView
   }()
   
   lazy var nameLabel: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.backgroundColor = .blue
+    label.backgroundColor = .lightGray
     label.font = UIFont.systemFont(ofSize: 20)
     label.numberOfLines = 0
     return label
@@ -56,5 +56,22 @@ class UserCell: UICollectionViewCell {
       nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
       nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0)
     ])
+  }
+  
+  func setup(viewModel: ViewModel) {
+    nameLabel.text = viewModel.name
+    avatarImageView.kf.setImage(with: viewModel.avatarUrl)
+  }
+}
+
+extension UserCell {
+  struct ViewModel {
+    let name: String
+    let avatarUrl: URL?
+    
+    init(user: User) {
+      name = user.name
+      avatarUrl = URL(string: user.avatarUrlString)
+    }
   }
 }

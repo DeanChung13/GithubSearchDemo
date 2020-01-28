@@ -13,10 +13,6 @@ struct User: Codable {
   let name: String
   let avatarUrlString: String
   
-  var avatarUrl: URL? {
-    return URL(string: avatarUrlString)
-  }
-  
   enum CodingKeys: String, CodingKey {
     case name = "login"
     case avatarUrlString = "avatar_url"

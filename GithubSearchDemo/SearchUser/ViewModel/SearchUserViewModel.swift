@@ -10,7 +10,7 @@ import Foundation
 
 extension SearchUserViewController {
   class ViewModel {
-    var users: [User] = [] {
+    var userViewModels: [UserCell.ViewModel] = [] {
       didSet {
         didLoadData?()
       }
@@ -27,8 +27,12 @@ extension SearchUserViewController {
       apiService.searchUser(name: name, nextPage: 1) { [weak self] (result) in
         guard let self = self else { return }
           
-        self.users = result.users
+        self.userViewModels.append(contentsOf: result.users.map { UserCell.ViewModel(user: $0) })
       }
+    }
+    
+    func userViewModel(index: Int) -> UserCell.ViewModel {
+      return userViewModels[index]
     }
   }
 }
