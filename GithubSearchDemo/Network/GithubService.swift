@@ -20,9 +20,12 @@ struct GithubService {
       
       switch result {
       case .success(let response):
+        let rawLink = response.response?.allHeaderFields["Link"] as? String
+        
         do {
           let users = try response.map(SearchResponse<User>.self).items
-          completion(SearchUserResult(users: users))
+          let pageInfo = try PageInfoParser(rawString: rawLink).parseAll()
+          completion(SearchUserResult(users: users, pageInfo: pageInfo))
         } catch {
           print(error.localizedDescription)
         }

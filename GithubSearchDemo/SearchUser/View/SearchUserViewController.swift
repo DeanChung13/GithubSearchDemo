@@ -81,7 +81,7 @@ class SearchUserViewController: UIViewController {
 
 extension SearchUserViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return viewModel.userViewModels.count
+    return viewModel.userCount()
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -90,6 +90,11 @@ extension SearchUserViewController: UICollectionViewDataSource {
     }
     let userViewModel = viewModel.userViewModel(index: indexPath.item)
     cell.setup(viewModel: userViewModel)
+    
+    if indexPath.item == viewModel.userCount() - 1 {
+      viewModel.loadSearchUserNextPage()
+    }
+    
     return cell
   }
 }

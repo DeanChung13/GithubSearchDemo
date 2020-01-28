@@ -20,4 +20,5 @@ struct SearchResponse<T: Codable>: Codable {
 
 struct SearchUserResult {
   let users: [User]
+  let pageInfo: PageInfo
 }
