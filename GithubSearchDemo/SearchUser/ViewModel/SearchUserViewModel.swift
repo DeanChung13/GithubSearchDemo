@@ -15,7 +15,12 @@ extension SearchUserViewController {
         didLoadData?()
       }
     }
-    private var currentUserName: String = ""
+    private var currentUserName: String = "" {
+      didSet {
+        userViewModels.removeAll()
+        pageInfo = PageInfo()
+      }
+    }
     private var pageInfo = PageInfo()
     
     var didLoadData: (() -> Void)?
@@ -36,12 +41,16 @@ extension SearchUserViewController {
     }
     
     func searchUserWithService() {
-      let nextPage = 1
+      guard let nextPage = pageInfo[.next] else {
+        // TODO: data to the end
+        return
+      }
       
       apiService.searchUser(name: currentUserName, nextPage: nextPage) { [weak self] (result) in
         guard let self = self else { return }
           
         self.userViewModels.append(contentsOf: result.users.map { UserCell.ViewModel(user: $0) })
+        self.pageInfo = result.pageInfo
       }
     }
     

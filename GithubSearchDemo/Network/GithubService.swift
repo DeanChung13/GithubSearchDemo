@@ -11,12 +11,15 @@ import Moya
 
 struct GithubService {
   let provider = MoyaProvider<GithubAPI>()
+  var currentRequest: Cancellable?
   
-  func searchUser(name: String,
+  mutating func searchUser(name: String,
                   nextPage: Int,
                   completion: @escaping (SearchUserResult) -> Void) {
     
-    provider.request(.searchUser(name: name, page: 1)) { (result) in
+    self.currentRequest?.cancel()
+    
+    let request = provider.request(.searchUser(name: name, page: 1)) { (result) in
       
       switch result {
       case .success(let response):
@@ -33,5 +36,7 @@ struct GithubService {
         print(error.localizedDescription)
       }
     }
+    
+    self.currentRequest = request
   }
 }
