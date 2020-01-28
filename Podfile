@@ -9,6 +9,8 @@ target 'GithubSearchDemo' do
   # Pods for GithubSearchDemo
   pod 'Moya', '~> 13.0.1'
   pod 'Kingfisher', '~> 5.11.0'
+  pod 'RxDataSources', '~> 4.0.1'
+  pod 'RxSwift', '~> 5.0.1'
 
   target 'GithubSearchDemoTests' do
     inherit! :search_paths
