@@ -28,6 +28,7 @@ class SearchUserViewController: UIViewController {
   lazy var textField: UITextField = {
     let textField = UITextField()
     textField.placeholder = "Input User name to Search"
+    textField.delegate = self
     return textField
   }()
   
@@ -45,12 +46,14 @@ class SearchUserViewController: UIViewController {
     return view
   }()
   
+  let viewModel = ViewModel(service: GithubService())
   
   // MARK: - View lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     setupSubviews()
     setupConstraints()
+    initBinding()
   }
   
   private func setupSubviews() {
@@ -68,20 +71,36 @@ class SearchUserViewController: UIViewController {
       rootStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 16),
     ])
   }
+  
+  private func initBinding() {
+    viewModel.didLoadData = { [weak self] in
+      self?.collectionView.reloadData()
+    }
+  }
 }
 
 extension SearchUserViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 100
+    return viewModel.users.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCell.reuseIdentifier, for: indexPath) as? UserCell else {
       fatalError("Cannot get UserCell")
     }
-    cell.nameLabel.text = "\(indexPath.item)"
+    cell.nameLabel.text = viewModel.users[indexPath.item].name
     return cell
   }
-  
-  
+}
+
+extension SearchUserViewController: UITextFieldDelegate {
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    guard let text = textField.text,
+      let range = Range(range, in: text) else {
+      return true
+    }
+    let result = text.replacingCharacters(in: range , with: string)
+    viewModel.searchUser(name: result)
+    return true
+  }
 }
