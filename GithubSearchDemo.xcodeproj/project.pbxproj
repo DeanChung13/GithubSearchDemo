@@ -8,22 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4008AD0423E032D400C7BAE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD0323E032D400C7BAE1 /* AppDelegate.swift */; };
-		4008AD0623E032D400C7BAE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD0523E032D400C7BAE1 /* SceneDelegate.swift */; };
-		4008AD0823E032D400C7BAE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD0723E032D400C7BAE1 /* ContentView.swift */; };
 		4008AD0A23E032D400C7BAE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4008AD0923E032D400C7BAE1 /* Assets.xcassets */; };
-		4008AD0D23E032D400C7BAE1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4008AD0C23E032D400C7BAE1 /* Preview Assets.xcassets */; };
 		4008AD1023E032D400C7BAE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4008AD0E23E032D400C7BAE1 /* LaunchScreen.storyboard */; };
+		4008AD1823E0339500C7BAE1 /* SimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008AD1723E0339500C7BAE1 /* SimpleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4008AD0023E032D400C7BAE1 /* GithubSearchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4008AD0323E032D400C7BAE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4008AD0523E032D400C7BAE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4008AD0723E032D400C7BAE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4008AD0923E032D400C7BAE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4008AD0C23E032D400C7BAE1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4008AD0F23E032D400C7BAE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4008AD1123E032D400C7BAE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4008AD1723E0339500C7BAE1 /* SimpleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,22 +53,12 @@
 			isa = PBXGroup;
 			children = (
 				4008AD0323E032D400C7BAE1 /* AppDelegate.swift */,
-				4008AD0523E032D400C7BAE1 /* SceneDelegate.swift */,
-				4008AD0723E032D400C7BAE1 /* ContentView.swift */,
+				4008AD1723E0339500C7BAE1 /* SimpleViewController.swift */,
 				4008AD0923E032D400C7BAE1 /* Assets.xcassets */,
 				4008AD0E23E032D400C7BAE1 /* LaunchScreen.storyboard */,
 				4008AD1123E032D400C7BAE1 /* Info.plist */,
-				4008AD0B23E032D400C7BAE1 /* Preview Content */,
 			);
 			path = GithubSearchDemo;
-			sourceTree = "<group>";
-		};
-		4008AD0B23E032D400C7BAE1 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				4008AD0C23E032D400C7BAE1 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +120,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4008AD1023E032D400C7BAE1 /* LaunchScreen.storyboard in Resources */,
-				4008AD0D23E032D400C7BAE1 /* Preview Assets.xcassets in Resources */,
 				4008AD0A23E032D400C7BAE1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,9 +131,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4008AD1823E0339500C7BAE1 /* SimpleViewController.swift in Sources */,
 				4008AD0423E032D400C7BAE1 /* AppDelegate.swift in Sources */,
-				4008AD0623E032D400C7BAE1 /* SceneDelegate.swift in Sources */,
-				4008AD0823E032D400C7BAE1 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +200,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +254,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -285,9 +269,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"GithubSearchDemo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GithubSearchDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,9 +288,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"GithubSearchDemo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GithubSearchDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
